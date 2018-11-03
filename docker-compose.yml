@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+   demo.meitu.dev:
+     image: centos-6.8-x86_64-php-7.1-meitu-dev
+     expose:
+       - 80
+     depends_on:
+       - memcache.dev
+     volumes:
+       - ".:/www/demo.meitu.com"
+     restart: always
+     environment:
+       VIRTUAL_HOST: api.demo.meitu.dev,admin.mtphp.com,h5.demo.meitu.dev,internal.demo.meitu.dev
+     container_name: demo.meitu.dev
+     entrypoint: "/www/demo.meitu.com/assets/provision/entrypoint.sh"
+   memcache.dev:
+     image: memcached
+     restart: always
+     container_name: memcache.dev
+   redis.dev:
+     image: redis
+     restart: always
+     container_name: redis.dev
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

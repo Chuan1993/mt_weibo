@@ -1,0 +1,27 @@
+{
+  "name" : "mtphp/mt_demo",
+  "description" : "demo project using mtphp",
+  "type" : "project",
+  "require" : {
+    "mtphp/fw" : "1.0.*",
+    "mtphp/simple-task" : "0.9.*",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "repositories" : [
+    {
+      "type" : "git",
+      "url" : "https://gitlab.meitu.com/mtphp/fw.git"
+    },
+    {
+      "type" : "git",
+      "url" : "https://gitlab.meitu.com/mtphp/simple-task.git"
+    },
+    {
+      "type" : "git",
+      "url" : "https://gitlab.meitu.com/mtphp/simple-kafka.git"
+    }
+  ],
+  "require-dev": {
+    "symfony/var-dumper": "^3.4"
+  }
+}
